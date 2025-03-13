@@ -19,6 +19,11 @@ Unityプロジェクト起動に必要なもの
 #### Resource
 
 
+**Asset Store**
+
+- [DOTween (HOTween v2](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+
+
 **`Assets/Vendors`**
 
 - Download from [here](./#)  <!-- WIP -->
