@@ -15,3 +15,11 @@ Unityプロジェクト起動に必要なもの
 - Unity editor version: `6000.0.41f1` (Unity 6)
 - Template: 2D (Built-in Render Pipeline)
 
+
+#### Resource
+
+
+**`Assets/Vendors`**
+
+- Download from [here](./#)  <!-- WIP -->
+
