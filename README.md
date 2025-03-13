@@ -16,7 +16,7 @@ Unityプロジェクト起動に必要なもの
 - Template: 2D (Built-in Render Pipeline)
 
 
-#### Resource
+#### Resources
 
 
 **Asset Store**
