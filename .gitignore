@@ -75,4 +75,6 @@ crashlytics-build.properties
 # Third parties' assets
 /[Aa]ssets/Vendors
 /[Aa]ssets/Vendors.meta
+/[Aa]ssets/Plugins
+/[Aa]ssets/Plugins.meta
 
