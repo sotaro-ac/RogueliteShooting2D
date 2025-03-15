@@ -77,4 +77,10 @@ crashlytics-build.properties
 /[Aa]ssets/Vendors.meta
 /[Aa]ssets/Plugins
 /[Aa]ssets/Plugins.meta
+/[Aa]ssets/TextMesh\ Pro
+/[Aa]ssets/TextMesh\ Pro.meta
+
+# Fonts files
+*.ttf
+*.ttf.meta
 
