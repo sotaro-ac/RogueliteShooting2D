@@ -18,10 +18,22 @@ Unityプロジェクト起動に必要なもの
 
 #### Resources
 
+**Fonts**
+
+- Noto Sans japanese - Google Font [[Link]](https://fonts.google.com/noto/specimen/Noto+Sans+JP?subset=japanese&query=Noto+Sans+Japanese&noto.script=Hira):
+  - 異なるプレイ環境でもフォントの表示を統一するために用意（`Assets/Fonts`に配置する）
+
+
+**Module (Import)**
+
+- TextMesh Pro:
+  - 高度なテキストオブジェクトを作成可能（`Assets/TextMesh Pro`に配置される）
+
 
 **Asset Store**
 
-- [DOTween (HOTween v2](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+- [DOTween (HOTween v2](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676):
+  - ドット画像素材（`Assets/Plugins/Demigiant`に配置される）
 
 
 **`Assets/Vendors`**
