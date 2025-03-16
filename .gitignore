@@ -84,3 +84,5 @@ crashlytics-build.properties
 *.ttf
 *.ttf.meta
 
+# Visual Studio Code setting files
+.vscode
