@@ -33,7 +33,7 @@ public class CharacterSettings : ScriptableObject
 public enum MoveType
 {
     // キャラクターに向かって進む
-    TargetOlayer,
+    TargetPlayer,
 
     // 一方向に進む
     TargetDirection,
