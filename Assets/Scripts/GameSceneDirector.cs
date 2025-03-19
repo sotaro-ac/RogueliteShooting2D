@@ -19,6 +19,8 @@ public class GameSceneDirector : MonoBehaviour
     public Vector2 WorldStart;
     public Vector2 WorldEnd;
 
+    public PlayerController Player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
