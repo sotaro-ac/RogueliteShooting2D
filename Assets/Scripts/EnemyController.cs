@@ -1,3 +1,4 @@
+using System.Threading;
 using DG.Tweening;
 using UnityEngine;
 
@@ -65,13 +66,45 @@ public class EnemyController : MonoBehaviour
         state = State.Alive;
     }
 
-    // TODO: moveEnemy, updateTimer を実装する
-    private void moveEnemy()
+    void moveEnemy()
     {
-        throw new System.NotImplementedException();
+        if (State.Alive != state)
+            return;
+
+        // Targetがプレイヤーなら進む方向を変える
+        if (MoveType.TargetPlayer == Stats.MoveType)
+        {
+            PlayerController player = sceneDirector.Player;
+            Vector2 dir = player.transform.position - transform.position;
+            forward = dir;
+        }
+
+        // 移動
+        rigidbody2d.position += Stats.MoveSpeed * Time.deltaTime * forward.normalized;
     }
 
-    private void updateTimer()
+    // 各種タイマー更新
+    void updateTimer()
+    {
+        if (0 < attackCoolDownTimer)
+        {
+            attackCoolDownTimer -= Time.deltaTime;
+        }
+
+        // 生存時間が設定されていたらタイマー消化
+        if (0 < Stats.AliveTime)
+        {
+            Stats.AliveTime -= Time.deltaTime;
+            if (0 > Stats.AliveTime)
+            {
+                setDead(false);
+            }
+        }
+    }
+
+    // TODO: 続きを実装する
+    // 敵が死んだときに呼び出される
+    void setDead(bool createXP = true)
     {
         throw new System.NotImplementedException();
     }
