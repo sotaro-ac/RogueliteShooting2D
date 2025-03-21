@@ -57,7 +57,9 @@ public class EnemyController : MonoBehaviour
         // 回転
         float addz = 10f;
         float z = Random.Range(-addz, addz) * random;
+        // 初期値
         Vector3 rotation = transform.rotation.eulerAngles;
+        rotation.z = z;
         // 目標値
         transform.eulerAngles = rotation;
         transform.DORotate(new Vector3(0, 0, -z), speed).SetLoops(-1, LoopType.Yoyo);
@@ -135,18 +137,18 @@ public class EnemyController : MonoBehaviour
     // 衝突したとき
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        throw new System.NotImplementedException();
+        // throw new System.NotImplementedException();
     }
 
     // 衝突している間
     private void OnCollisionStay2D(Collision2D collision)
     {
-        throw new System.NotImplementedException();
+        // throw new System.NotImplementedException();
     }
 
     // 衝突が終わったとき
     private void OnCollisionExit2D(Collision2D collision)
     {
-        throw new System.NotImplementedException();
+        // throw new System.NotImplementedException();
     }
 }
