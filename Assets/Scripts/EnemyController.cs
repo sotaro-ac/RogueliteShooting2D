@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public CharacterStats Stats;
 
+    [SerializeField]
     GameSceneDirector sceneDirector;
     Rigidbody2D rigidbody2d;
 
@@ -25,7 +26,10 @@ public class EnemyController : MonoBehaviour
     State state;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() { }
+    void Start()
+    {
+        Init(this.sceneDirector, CharacterSettings.Instance.Get(100));
+    }
 
     // Update is called once per frame
     void Update()
@@ -102,9 +106,46 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // TODO: 続きを実装する
     // 敵が死んだときに呼び出される
     void SetDead(bool createXP = true)
+    {
+        if (State.Alive != state)
+        {
+            return;
+        }
+
+        // 物理挙動を停止
+        rigidbody2d.simulated = false;
+
+        // アニメーションを停止
+        transform.DOKill();
+
+        // 縦に潰れるアニメーション
+        transform.DOScaleY(0, 0.5f).OnComplete(() => Destroy(gameObject));
+
+        // 経験値を作成
+        if (createXP)
+        {
+            // TODO: 経験値作成
+        }
+
+        state = State.Dead;
+    }
+
+    // 衝突したとき
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    // 衝突している間
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    // 衝突が終わったとき
+    private void OnCollisionExit2D(Collision2D collision)
     {
         throw new System.NotImplementedException();
     }
