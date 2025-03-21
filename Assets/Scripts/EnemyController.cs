@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // 各種タイマー更新
-    void updateTimer()
+    void UpdateTimer()
     {
         if (0 < attackCoolDownTimer)
         {
@@ -97,14 +97,14 @@ public class EnemyController : MonoBehaviour
             Stats.AliveTime -= Time.deltaTime;
             if (0 > Stats.AliveTime)
             {
-                setDead(false);
+                SetDead(false);
             }
         }
     }
 
     // TODO: 続きを実装する
     // 敵が死んだときに呼び出される
-    void setDead(bool createXP = true)
+    void SetDead(bool createXP = true)
     {
         throw new System.NotImplementedException();
     }
