@@ -30,8 +30,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateTimer();
-        moveEnemy();
+        UpdateTimer();
+        MoveEnemy();
     }
 
     public void Init(GameSceneDirector sceneDirector, CharacterStats characterStats)
@@ -66,7 +66,7 @@ public class EnemyController : MonoBehaviour
         state = State.Alive;
     }
 
-    void moveEnemy()
+    void MoveEnemy()
     {
         if (State.Alive != state)
             return;
