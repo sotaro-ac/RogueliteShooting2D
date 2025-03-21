@@ -1,5 +1,6 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 // 右クリックメニューに表示
@@ -18,6 +19,7 @@ public class CharacterSettings : ScriptableObject
             {
                 instance = Resources.Load<CharacterSettings>(nameof(CharacterSettings));
             }
+
             return instance;
         }
     }
@@ -39,7 +41,7 @@ public enum MoveType
     TargetDirection,
 }
 
-[SerializeField]
+[Serializable]
 public class CharacterStats : BaseStats
 {
     // キャラクターのprefab
