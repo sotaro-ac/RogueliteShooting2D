@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public enum SpawnType
 {
@@ -33,6 +34,34 @@ public class EnemySpawnData
 
 public class EnemySpawnerController : MonoBehaviour
 {
+    // 敵データ
+    [SerializeField]
+    List<EnemySpawnData> enemySpawnDatas;
+
+    // 生成した敵
+    List<EnemyController> enemies;
+
+    // シーンディレクター
+    GameSceneDirector sceneDirector;
+
+    // 当たり判定のあるタイルマップ
+    Tilemap tilemapCollider;
+
+    // 現在の参照データ
+    EnemySpawnData enemySpawnData;
+
+    // 経過時間
+
+    float oldSeconds;
+    float spawnTimer;
+
+    // 現在のデータ位置
+    int spawnDataIndex;
+
+    // 現在の出現位置
+
+    const float SpawnRadius = 13;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() { }
 
