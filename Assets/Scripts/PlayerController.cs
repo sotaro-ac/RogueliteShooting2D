@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
 
     public CharacterStats Stats;
 
+    // 攻撃のクールダウン
+    float attackCoolDownTimer;
+    float attackCoolDownTimerMax = 0.5f;
+
     [SerializeField]
     Vector3 sliderHPPositinOffset = new(0, 50, 0); // HPスライダーをプレイヤーの頭上に移動する
 
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateTimer();
         MovePlayer();
         MoveCamera();
         MoveSliderHP();
@@ -184,5 +189,50 @@ public class PlayerController : MonoBehaviour
     {
         sliderXP.maxValue = Stats.MaxXP;
         sliderXP.value = Stats.XP;
+    }
+
+    // 衝突したとき
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        AttackEnemy(collision);
+    }
+
+    // 衝突している間
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        AttackEnemy(collision);
+    }
+
+    // 衝突が終わったとき
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // throw new System.NotImplementedException();
+    }
+
+    // 敵へ攻撃する
+    void AttackEnemy(Collision2D collision)
+    {
+        // 敵以外
+        if (!collision.gameObject.TryGetComponent<EnemyController>(out var enemy))
+        {
+            return;
+        }
+        // タイマー未消化
+        if (0 < attackCoolDownTimer)
+        {
+            return;
+        }
+
+        enemy.Damage(Stats.Attack);
+        attackCoolDownTimer = attackCoolDownTimerMax;
+    }
+
+    // 各種タイマー更新
+    void UpdateTimer()
+    {
+        if (0 < attackCoolDownTimer)
+        {
+            attackCoolDownTimer -= Time.deltaTime;
+        }
     }
 }
