@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     Slider sliderHP;
+
+    [SerializeField]
+    Slider sliderXP;
+
+    public CharacterStats Stats;
 
     [SerializeField]
     Vector3 sliderHPPositinOffset = new(0, 50, 0); // HPスライダーをプレイヤーの頭上に移動する
@@ -142,5 +148,41 @@ public class PlayerController : MonoBehaviour
         // ワールド座標をスクリーン座標に変換
         Vector3 pos = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
         sliderHP.transform.position = pos + sliderHPPositinOffset;
+    }
+
+    //
+    public void Damage(float attack)
+    {
+        if (!enabled)
+            return;
+
+        float damage = Mathf.Max(0, attack - Stats.Defense);
+        Stats.HP -= damage;
+
+        // ダメージ表示
+        sceneDirector.DisplayDamage(gameObject, damage);
+
+        // TODO: ゲームオーバー
+        if (0 > Stats.HP) { }
+
+        if (0 > Stats.HP)
+        {
+            Stats.HP = 0;
+        }
+        SetSliderHP();
+    }
+
+    // HPスライダーの値を更新
+    void SetSliderHP()
+    {
+        sliderHP.maxValue = Stats.MaxHP;
+        sliderHP.value = Stats.HP;
+    }
+
+    // XPスライダーの値を更新
+    void SetSliderXP()
+    {
+        sliderXP.maxValue = Stats.MaxXP;
+        sliderXP.value = Stats.XP;
     }
 }
