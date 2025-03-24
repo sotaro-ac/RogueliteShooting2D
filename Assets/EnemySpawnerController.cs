@@ -59,7 +59,6 @@ public class EnemySpawnerController : MonoBehaviour
     int spawnDataIndex;
 
     // 現在の出現位置
-
     const float SpawnRadius = 13;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
