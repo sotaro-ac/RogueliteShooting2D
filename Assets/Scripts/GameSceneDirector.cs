@@ -35,11 +35,16 @@ public class GameSceneDirector : MonoBehaviour
     public float GameTimer;
     public float OldSeconds;
 
+    // 敵生成
+    [SerializeField]
+    EnemySpawnerController enemySpawner;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // タイマーの初期設定
         OldSeconds = -1;
+        enemySpawner.Init(this, tilemapCollider);
 
         // カメラの移動できる範囲
         foreach (Transform item in grid.GetComponentInChildren<Transform>())

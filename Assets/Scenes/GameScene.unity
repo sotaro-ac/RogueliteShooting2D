@@ -17294,6 +17294,7 @@ MonoBehaviour:
   textTimer: {fileID: 523488522}
   GameTimer: 0
   OldSeconds: 0
+  enemySpawner: {fileID: 307165558}
 --- !u!4 &1306728215
 Transform:
   m_ObjectHideFlags: 0
