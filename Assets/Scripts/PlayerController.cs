@@ -156,7 +156,9 @@ public class PlayerController : MonoBehaviour
     public void Damage(float attack)
     {
         if (!enabled)
+        {
             return;
+        }
 
         float damage = Mathf.Max(0, attack - Stats.Defense);
         Stats.HP -= damage;
@@ -171,6 +173,7 @@ public class PlayerController : MonoBehaviour
         {
             Stats.HP = 0;
         }
+
         SetSliderHP();
     }
 

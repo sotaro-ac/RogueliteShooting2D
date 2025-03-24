@@ -74,7 +74,9 @@ public class EnemyController : MonoBehaviour
     void MoveEnemy()
     {
         if (State.Alive != state)
+        {
             return;
+        }
 
         // Targetがプレイヤーなら進む方向を変える
         if (MoveType.TargetPlayer == Stats.MoveType)

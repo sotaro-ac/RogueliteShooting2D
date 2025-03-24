@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -15,7 +12,6 @@ public class GameSceneDirector : MonoBehaviour
     Tilemap tilemapCollider;
 
     // マップ全体の座標
-
     public Vector2 TilemapStart;
     public Vector2 TilemapEnd;
     public Vector2 WorldStart;
