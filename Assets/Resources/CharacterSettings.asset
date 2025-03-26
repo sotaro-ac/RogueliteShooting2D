@@ -13,6 +13,25 @@ MonoBehaviour:
   m_Name: CharacterSettings
   m_EditorClassIdentifier: 
   datas:
+  - Title: "\u30CA\u30A4\u30C8"
+    Id: 0
+    Lv: 1
+    Name: "\u30CA\u30A4\u30C8"
+    Description: 
+    Attack: 5
+    Defense: 1
+    HP: 100
+    MaxHP: 100
+    XP: 0
+    MaxXP: 10
+    MoveSpeed: 3
+    PickUpRange: 0.5
+    AliveTime: 0
+    Prefab: {fileID: 7051577206823981917, guid: 7fa689c14efb53144b59c342cca03939, type: 3}
+    DefaultWeaponIds: 00000000
+    UsableWeaponIds: 0000000001000000020000000300000004000000050000000600000007000000
+    UsableWeaponMax: 6
+    MoveType: 0
   - Title: "\u30B3\u30A6\u30E2\u30EA"
     Id: 100
     Lv: 0
