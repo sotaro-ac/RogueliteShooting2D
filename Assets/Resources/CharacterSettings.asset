@@ -127,10 +127,10 @@ MonoBehaviour:
     UsableWeaponIds: 
     UsableWeaponMax: 0
     MoveType: 0
-  - Title: "\u5927\u8ECD\u30B3\u30A6\u30E2\u30EA"
+  - Title: "\u5927\u7FA4\u30B3\u30A6\u30E2\u30EA"
     Id: 200
     Lv: 0
-    Name: "\u5927\u8ECD\u30B3\u30A6\u30E2\u30EA"
+    Name: "\u5927\u7FA4\u30B3\u30A6\u30E2\u30EA"
     Description: 
     Attack: 15
     Defense: 0
@@ -146,10 +146,10 @@ MonoBehaviour:
     UsableWeaponIds: 
     UsableWeaponMax: 0
     MoveType: 1
-  - Title: "\u5927\u8ECD\u30B9\u30E9\u30A4\u30E0"
+  - Title: "\u5927\u7FA4\u30B9\u30E9\u30A4\u30E0"
     Id: 201
     Lv: 1
-    Name: "\u5927\u8ECD\u30B9\u30E9\u30A4\u30E0"
+    Name: "\u5927\u7FA4\u30B9\u30E9\u30A4\u30E0"
     Description: 
     Attack: 50
     Defense: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
     UsableWeaponMax: 0
     MoveType: 0
   - Title: "\u30DC\u30B9"
-    Id: 300
+    Id: 500
     Lv: 1
     Name: "\u30DC\u30B9"
     Description: 

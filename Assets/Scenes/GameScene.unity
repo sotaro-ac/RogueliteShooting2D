@@ -2694,7 +2694,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9274f44da714b4f47aaeb705450e06e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnDatas: []
+  enemySpawnDatas:
+  - Title: "0:00 \u30DC\u30B9"
+    ElapsedMinutes: 0
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 1
+    SpawnCountMax: 1
+    EnemyIds: f4010000
+  - Title: "0:00 \u30B3\u30A6\u30E2\u30EA"
+    ElapsedMinutes: 0
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 5
+    SpawnCountMax: 20
+    EnemyIds: 64000000
+  - Title: "0:02 \u5927\u7FA4\u30B3\u30A6\u30E2\u30EA"
+    ElapsedMinutes: 0
+    ElapsedSeconds: 2
+    SpawnType: 1
+    SpawnDuration: 4
+    SpawnCountMax: 30
+    EnemyIds: c8000000
+  - Title: "0:15 \u30B9\u30E9\u30A4\u30E0"
+    ElapsedMinutes: 0
+    ElapsedSeconds: 15
+    SpawnType: 0
+    SpawnDuration: 15
+    SpawnCountMax: 20
+    EnemyIds: 65000000
+  - Title: "0:30 \u30B4\u30D6\u30EA\u30F3"
+    ElapsedMinutes: 0
+    ElapsedSeconds: 30
+    SpawnType: 0
+    SpawnDuration: 5
+    SpawnCountMax: 30
+    EnemyIds: 6500000066000000
+  - Title: "1:00 \u30BE\u30F3\u30D3"
+    ElapsedMinutes: 1
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 5
+    SpawnCountMax: 30
+    EnemyIds: 6600000067000000
 --- !u!4 &307165559
 Transform:
   m_ObjectHideFlags: 0
@@ -17118,7 +17160,7 @@ Transform:
   m_GameObject: {fileID: 1306728213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21335205, y: 0.093002535, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
