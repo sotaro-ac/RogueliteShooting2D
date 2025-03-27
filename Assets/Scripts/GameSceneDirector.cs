@@ -35,9 +35,30 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField]
     EnemySpawnerController enemySpawner;
 
+    // プレイヤー生成
+    [SerializeField]
+    Slider sliderXP;
+
+    [SerializeField]
+    Slider sliderHP;
+
+    [SerializeField]
+    Text textLv;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // プレイヤー作成
+        int playerId = 0;
+        Player = CharacterSettings.Instance.CreatePlayer(
+            playerId,
+            this,
+            enemySpawner,
+            textLv,
+            sliderHP,
+            sliderXP
+        );
+
         // タイマーの初期設定
         OldSeconds = -1;
         enemySpawner.Init(this, tilemapCollider);

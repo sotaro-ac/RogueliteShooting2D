@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,17 +9,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     Animator animator;
 
-    [SerializeField]
-    float moveSpeed = 2.0f;
-
-    // TODO: 後で Init へ移行
-    [SerializeField]
+    // SerializedField していたものは Init へ移行
     GameSceneDirector sceneDirector;
-
-    [SerializeField]
     Slider sliderHP;
-
-    [SerializeField]
     Slider sliderXP;
 
     public CharacterStats Stats;
@@ -26,14 +20,29 @@ public class PlayerController : MonoBehaviour
     float attackCoolDownTimer;
     float attackCoolDownTimerMax = 0.5f;
 
+    // 最大レベル
+    int maxLv = 999;
+
+    // 必要XP
+    List<int> levelRequirements;
+
+    // 敵生成装置：敵がいる位置を知るために必要
+    EnemySpawnerController enemySpawner;
+
+    // 向き
+    public Vector2 Forward;
+
+    // レベルテキスト
+    Text textLv;
+
     [SerializeField]
     Vector3 sliderHPPositinOffset = new(0, 50, 0); // HPスライダーをプレイヤーの頭上に移動する
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        // rigidbody2d = GetComponent<Rigidbody2D>();
+        // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,6 +52,71 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
         MoveCamera();
         MoveSliderHP();
+    }
+
+    // 初期化
+    public void Init(
+        GameSceneDirector sceneDirector,
+        EnemySpawnerController enemySpawner,
+        CharacterStats characterStats,
+        Text textLv,
+        Slider sliderHP,
+        Slider sliderXP
+    )
+    {
+        // 変数の初期化
+        levelRequirements = new List<int>();
+
+        this.sceneDirector = sceneDirector;
+        this.enemySpawner = enemySpawner;
+        this.Stats = characterStats;
+        this.textLv = textLv;
+        this.sliderHP = sliderHP;
+        this.sliderXP = sliderXP;
+
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
+        // プレイヤーの向き
+        Forward = Vector2.right;
+
+        // 経験値の閾値リストを作成
+        levelRequirements.Add(0);
+        for (int i = 1; i <= maxLv; ++i)
+        {
+            // 1つ前の閾値
+            int prevxp = levelRequirements[i - 1];
+
+            // Lv41以降はレベル毎に16XPずつ増加
+            int addxp = 16;
+
+            // レベル2までレベルアップするのに5XP
+            if (i == 1)
+            {
+                addxp = 5;
+            }
+            else if (20 >= i)
+            {
+                addxp = 10;
+            }
+            else if (40 >= i)
+            {
+                addxp = 13;
+            }
+            // 必要経験値
+            levelRequirements.Add(prevxp + addxp);
+        }
+
+        // Lv2の必要経験値
+        Stats.MaxXP = levelRequirements[1];
+
+        // UI初期化
+        SetTextLv();
+        SetSliderHP();
+        SetSliderXP();
+        MoveSliderHP();
+
+        // TODO: 武器データセット
     }
 
     // Playerの移動に関する処理
@@ -82,7 +156,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // プレイヤー移動
-        rigidbody2d.position += moveSpeed * Time.deltaTime * dir.normalized;
+        rigidbody2d.position += Stats.MoveSpeed * Time.deltaTime * dir.normalized;
 
         // アニメーションを再生
         animator.SetTrigger(trigger);
@@ -234,5 +308,14 @@ public class PlayerController : MonoBehaviour
         {
             attackCoolDownTimer -= Time.deltaTime;
         }
+    }
+
+    // レベルテキスト更新
+    void SetTextLv()
+    {
+        // TODO: 最大レベルの桁数分の幅を持つ空白右詰めで表示
+        // e.g. maxLv: 999, Stats.Lv: 12 -> " 12"
+        // textLv.text = "Lv." + Stats.Lv.ToString().PadLeft(maxLv.ToString().Length);
+        textLv.text = "Lv." + Stats.Lv;
     }
 }
