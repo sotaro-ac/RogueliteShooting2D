@@ -34,7 +34,7 @@ public class BaseWeapon : MonoBehaviour
     }
 
     // 敵へ攻撃
-    protected void attackEnemy(Collider2D collider2d, float attack)
+    protected void AttackEnemy(Collider2D collider2d, float attack)
     {
         // 敵ではない場合
         if (!collider2d.gameObject.TryGetComponent<EnemyController>(out var enemy))
@@ -58,8 +58,8 @@ public class BaseWeapon : MonoBehaviour
     }
 
     // 敵へ攻撃（デフォルトの攻撃力）
-    protected void attackEnemy(Collider2D collider2d)
+    protected void AttackEnemy(Collider2D collider2d)
     {
-        attackEnemy(collider2d, stats.Attack);
+        AttackEnemy(collider2d, stats.Attack);
     }
 }
