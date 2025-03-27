@@ -176,6 +176,7 @@ public class BaseStats
     // コピーしたデータを返す
     public BaseStats GetCopy()
     {
+        // オブジェクトの shallow copy
         return (BaseStats)MemberwiseClone();
     }
 }
