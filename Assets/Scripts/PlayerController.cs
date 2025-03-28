@@ -136,22 +136,23 @@ public class PlayerController : MonoBehaviour
         // 再生するAnimation
         string trigger = "";
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        // TODO: WASD で移動 (より柔軟な方法で実装し直す)
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             dir += Vector2.up;
             trigger = "isUp";
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             dir -= Vector2.up;
             trigger = "isDown";
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             dir += Vector2.right;
             trigger = "isRight";
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             dir -= Vector2.right;
             trigger = "isLeft";
