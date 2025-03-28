@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Vector3 sliderHPPositinOffset = new(0, 50, 0); // HPスライダーをプレイヤーの頭上に移動する
 
+    // 現在装備中の武器
+    public List<BaseWeaponSpawner> WeaponSpawners;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,7 +68,8 @@ public class PlayerController : MonoBehaviour
     )
     {
         // 変数の初期化
-        levelRequirements = new List<int>();
+        this.levelRequirements = new List<int>();
+        this.WeaponSpawners = new List<BaseWeaponSpawner>();
 
         this.sceneDirector = sceneDirector;
         this.enemySpawner = enemySpawner;
@@ -116,7 +120,11 @@ public class PlayerController : MonoBehaviour
         SetSliderXP();
         MoveSliderHP();
 
-        // TODO: 武器データセット
+        // 武器データセット
+        foreach (var item in Stats.DefaultWeaponIds)
+        {
+            AddWeaponSpawner(item);
+        }
     }
 
     // Playerの移動に関する処理
@@ -317,5 +325,28 @@ public class PlayerController : MonoBehaviour
         // e.g. maxLv: 999, Stats.Lv: 12 -> " 12"
         // textLv.text = "Lv." + Stats.Lv.ToString().PadLeft(maxLv.ToString().Length);
         textLv.text = "Lv." + Stats.Lv;
+    }
+
+    void AddWeaponSpawner(int id)
+    {
+        // TODO: 装備済みならレベルアップする
+        BaseWeaponSpawner spawner = WeaponSpawners.Find(item => item.Stats.Id == id);
+
+        if (spawner)
+        {
+            return;
+        }
+
+        // 新規追加
+        spawner = WeaponSpawnerSettings.Instance.CreateWeaponSpawner(id, enemySpawner, transform);
+
+        if (null == spawner)
+        {
+            Debug.LogError("武器データがありません");
+            return;
+        }
+
+        // 装備済みリストへ追加
+        WeaponSpawners.Add(spawner);
     }
 }
