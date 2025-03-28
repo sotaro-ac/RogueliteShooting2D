@@ -16,6 +16,9 @@ public class BaseWeaponSpawner : MonoBehaviour
     // 稼働タイマー
     public float TotalTimer;
 
+    // 生成タイマー
+    protected float spawnTimer;
+
     // 生成した武器のリスト
     public List<BaseWeapon> weapons;
 
