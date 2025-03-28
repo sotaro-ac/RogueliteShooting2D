@@ -16,7 +16,7 @@ MonoBehaviour:
   - Title: "\u30B9\u30E9\u30C3\u30B7\u30E5"
     Id: 0
     Lv: 1
-    Name: 
+    Name: "\u30B9\u30E9\u30C3\u30B7\u30E5"
     Description: 
     Attack: 15
     Defense: 0
@@ -29,6 +29,26 @@ MonoBehaviour:
     AliveTime: 0.5
     PrefabSpawner: {fileID: 1771441204919818805, guid: 84f741cfe1cf5fb4d90d41d38a954eff, type: 3}
     Icon: {fileID: 1175634806, guid: f92c3a4d6cb0247a7bdd3e66be430c6b, type: 3}
+    LevelUpItemId: 1
+    SpawnCount: 2
+    SpawnTimerMin: 2
+    SpawnTimerMax: 2
+  - Title: "\u30A2\u30C3\u30AF\u30B9"
+    Id: 1
+    Lv: 1
+    Name: "\u30A2\u30C3\u30AF\u30B9"
+    Description: 
+    Attack: 30
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: -1
+    PickUpRange: 0
+    AliveTime: 5
+    PrefabSpawner: {fileID: 701069750098625854, guid: 44f4a833563563f4fae59bf138282c6b, type: 3}
+    Icon: {fileID: -35660143, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
     LevelUpItemId: 1
     SpawnCount: 2
     SpawnTimerMin: 2
