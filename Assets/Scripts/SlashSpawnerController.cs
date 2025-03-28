@@ -17,8 +17,7 @@ public class SlashSpawnerController : BaseWeaponSpawner
     void Update()
     {
         // タイマーを消化
-        spawnTimer -= Time.deltaTime;
-        if (0 < spawnTimer)
+        if (isSpawnTimerNotElapsed())
         {
             return;
         }
