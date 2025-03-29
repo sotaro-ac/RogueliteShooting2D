@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WeaponSpawnerSettings
   m_EditorClassIdentifier: 
   datas:
-  - Title: "\u30B9\u30E9\u30C3\u30B7\u30E5"
+  - Title: Slash
     Id: 0
     Lv: 1
-    Name: "\u30B9\u30E9\u30C3\u30B7\u30E5"
+    Name: "\u65AC\u6483"
     Description: 
     Attack: 15
     Defense: 0
@@ -33,10 +33,10 @@ MonoBehaviour:
     SpawnCount: 2
     SpawnTimerMin: 2
     SpawnTimerMax: 2
-  - Title: "\u30A2\u30C3\u30AF\u30B9"
+  - Title: Axe
     Id: 1
     Lv: 1
-    Name: "\u30A2\u30C3\u30AF\u30B9"
+    Name: "\u6295\u65A7"
     Description: 
     Attack: 30
     Defense: 0
@@ -53,3 +53,23 @@ MonoBehaviour:
     SpawnCount: 2
     SpawnTimerMin: 2
     SpawnTimerMax: 2
+  - Title: Arrow
+    Id: 2
+    Lv: 1
+    Name: "\u77E2"
+    Description: "\u30E9\u30F3\u30C0\u30E0\u306A\u6575\u306B\u5411\u304B\u3063\u3066\u8CAB\u901A\u3059\u308B\u77E2\u3092\u653E\u3064\n\u8CAB\u901A\u6642\u306F30%\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B"
+    Attack: 15
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: 5
+    PrefabSpawner: {fileID: 2514693730072917004, guid: 7d1896df30b03b9458667327054e946d, type: 3}
+    Icon: {fileID: -574902017, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 4
+    SpawnCount: 2
+    SpawnTimerMin: 2
+    SpawnTimerMax: 3
