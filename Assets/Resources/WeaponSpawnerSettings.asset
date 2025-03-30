@@ -87,9 +87,49 @@ MonoBehaviour:
     MoveSpeed: 10
     PickUpRange: 0
     AliveTime: 10
-    PrefabSpawner: {fileID: 8254623706581964902, guid: 89d765d09209f284dab5c24396ec5a04, type: 3}
+    PrefabSpawner: {fileID: 2006544639598072630, guid: 665390e6b7eff03459f1c7b6a5df8089, type: 3}
     Icon: {fileID: 1904217932, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
     LevelUpItemId: 3
     SpawnCount: 3
     SpawnTimerMin: 3
     SpawnTimerMax: 3
+  - Title: Boomerang
+    Id: 4
+    Lv: 1
+    Name: "\u30D6\u30FC\u30E1\u30E9\u30F3\u30BD\u30FC\u30C9"
+    Description: "\u56DE\u8EE2\u3057\u306A\u304C\u3089\u623B\u3063\u3066\u304F\u308B\u30BD\u30FC\u30C9\t"
+    Attack: 15
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 500
+    PickUpRange: 0
+    AliveTime: 10
+    PrefabSpawner: {fileID: 4679921413944359948, guid: c2f807db242988f46b8eff0a0a7444a8, type: 3}
+    Icon: {fileID: 1436518502, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 2
+    SpawnCount: 1
+    SpawnTimerMin: 2
+    SpawnTimerMax: 3
+  - Title: Shield
+    Id: 5
+    Lv: 1
+    Name: "\u30B7\u30FC\u30EB\u30C9"
+    Description: "\u6575\u3092\u8DF3\u306D\u8FD4\u3059\u76FE\u3092\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u5468\u56F2\u306B\u5C55\u958B\u3059\u308B"
+    Attack: 5
+    Defense: 0
+    HP: 5
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: -1
+    PrefabSpawner: {fileID: 7213231188394331851, guid: 5d609735d761d4546be438896a02fddd, type: 3}
+    Icon: {fileID: -1350194950, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 4
+    SpawnCount: 3
+    SpawnTimerMin: 10
+    SpawnTimerMax: 10
