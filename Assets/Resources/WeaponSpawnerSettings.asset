@@ -153,3 +153,23 @@ MonoBehaviour:
     SpawnCount: 4
     SpawnTimerMin: 0.5
     SpawnTimerMax: 2
+  - Title: Pinwheel
+    Id: 7
+    Lv: 1
+    Name: "\u5186\u6708\u8F2A"
+    Description: "\u753B\u9762\u7AEF\u3067\u8DF3\u306D\u8FD4\u308B\u5186\u5F62\u306E\u624B\u88CF\u5263"
+    Attack: 10
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 8
+    PickUpRange: 0
+    AliveTime: -1
+    PrefabSpawner: {fileID: 1286058640705817543, guid: 52082811b1e522440bf2cf3b15c354b2, type: 3}
+    Icon: {fileID: -1544178710, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 4
+    SpawnCount: 1
+    SpawnTimerMin: 5
+    SpawnTimerMax: 5
