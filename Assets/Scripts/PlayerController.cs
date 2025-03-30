@@ -197,6 +197,9 @@ public class PlayerController : MonoBehaviour
             pos.y = sceneDirector.WorldEnd.y;
             rigidbody2d.position = pos;
         }
+
+        // プレイヤーの向きを保持する
+        Forward = dir;
     }
 
     // カメラの中心をプレイヤー位置に追従する

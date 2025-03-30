@@ -73,3 +73,23 @@ MonoBehaviour:
     SpawnCount: 2
     SpawnTimerMin: 2
     SpawnTimerMax: 3
+  - Title: Knife
+    Id: 3
+    Lv: 1
+    Name: "\u30CA\u30A4\u30D5"
+    Description: "\u9032\u884C\u65B9\u5411\u306B\u30CA\u30A4\u30D5\u3092\u6295\u3052\u308B"
+    Attack: 10
+    Defense: 0
+    HP: 0
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: 10
+    PrefabSpawner: {fileID: 8254623706581964902, guid: 89d765d09209f284dab5c24396ec5a04, type: 3}
+    Icon: {fileID: 1904217932, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 3
+    SpawnCount: 3
+    SpawnTimerMin: 3
+    SpawnTimerMax: 3
