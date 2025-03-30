@@ -133,3 +133,23 @@ MonoBehaviour:
     SpawnCount: 3
     SpawnTimerMin: 10
     SpawnTimerMax: 10
+  - Title: Shuriken
+    Id: 6
+    Lv: 1
+    Name: "\u624B\u88CF\u5263"
+    Description: "\u624B\u88CF\u5263\u3092\u56DB\u65B9\u5411\u306B\u6295\u3052\u308B"
+    Attack: 15
+    Defense: 0
+    HP: 5
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: 10
+    PrefabSpawner: {fileID: 4442279581330284820, guid: 10d800ebd92e2404ca856b2a00885f67, type: 3}
+    Icon: {fileID: -1350194950, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 4
+    SpawnCount: 4
+    SpawnTimerMin: 0.5
+    SpawnTimerMax: 2
