@@ -173,3 +173,23 @@ MonoBehaviour:
     SpawnCount: 1
     SpawnTimerMin: 5
     SpawnTimerMax: 5
+  - Title: Bomb
+    Id: 8
+    Lv: 1
+    Name: "\u30DC\u30E0"
+    Description: "\u7206\u5F3E\u306E\u96E8\u3092\u964D\u3089\u305B\u3066\n\u30C0\u30E1\u30FC\u30B8\u306E\u3042\u308B\u30BF\u30A4\u30EB\u3092\u3070\u3089\u307E\u304F"
+    Attack: 50
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: -1
+    PrefabSpawner: {fileID: 7797252377564253067, guid: 29499ca512d4aec4fa6bf9764243617c, type: 3}
+    Icon: {fileID: -1737548618, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
+    LevelUpItemId: 4
+    SpawnCount: 1
+    SpawnTimerMin: 5
+    SpawnTimerMax: 5
