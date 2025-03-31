@@ -14,6 +14,7 @@ public class ShieldController : BaseWeapon
     {
         // フワッと表示する
         // * Modded: prefabの指定値を保持して、そのサイズまで膨張する
+        // TODO: DOTween Modules の読み込み時にエラーが発生しているので修正する
         Vector3 prevScale = transform.localScale;
         transform.localScale = new Vector3(0, 0, 0);
         // transform.DOScale(new Vector3(1, 1, 1), 1.5f).SetEase(Ease.OutBounce);
