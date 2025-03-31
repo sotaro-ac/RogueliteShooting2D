@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -44,6 +46,10 @@ public class GameSceneDirector : MonoBehaviour
 
     [SerializeField]
     Text textLv;
+
+    // 経験値
+    [SerializeField]
+    List<GameObject> prefabXP;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -122,5 +128,28 @@ public class GameSceneDirector : MonoBehaviour
 
         textTimer.text = Utils.GetTextTimer(GameTimer);
         OldSeconds = seconds;
+    }
+
+    public void CreateXP(EnemyController enemy)
+    {
+        float xp = UnityEngine.Random.Range(enemy.Stats.XP, enemy.Stats.MaxXP);
+        if (0 > xp)
+        {
+            return;
+        }
+
+        // 5未満
+        GameObject prefab = prefabXP[0];
+
+        // 10以上
+        if (10 <= xp)
+        {
+            prefab = prefabXP[1];
+        }
+
+        // 初期化
+        GameObject obj = Instantiate(prefab, enemy.transform.position, Quaternion.identity);
+        XPController ctrl = obj.GetComponent<XPController>();
+        ctrl.Init(this, xp);
     }
 }
