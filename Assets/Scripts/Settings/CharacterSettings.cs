@@ -95,5 +95,12 @@ public class CharacterStats : BaseStats
     // 移動タイプ
     public MoveType MoveType;
 
-    // TODO: アイテムを追加する
+    // アイテム追加
+    public void AddItemData(ItemData itemData)
+    {
+        foreach (var item in itemData.Bonuses)
+        {
+            AddBonus(item);
+        }
+    }
 }

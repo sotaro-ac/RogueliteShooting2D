@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
     // 現在装備中の武器
     public List<BaseWeaponSpawner> WeaponSpawners;
 
+    public Dictionary<ItemData, int> ItemDatas;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
         // 変数の初期化
         this.levelRequirements = new List<int>();
         this.WeaponSpawners = new List<BaseWeaponSpawner>();
+        this.ItemDatas = new Dictionary<ItemData, int>();
 
         this.sceneDirector = sceneDirector;
         this.enemySpawner = enemySpawner;
@@ -338,6 +342,7 @@ public class PlayerController : MonoBehaviour
 
         if (spawner)
         {
+            spawner.LevelUp();
             return;
         }
 
@@ -383,5 +388,120 @@ public class PlayerController : MonoBehaviour
 
         // 表示更新
         SetSliderXP();
+    }
+
+    // 装備可能な武器リスト
+    public List<int> GetUsableWeaponIds()
+    {
+        List<int> ret = new List<int>(Stats.UsableWeaponIds);
+
+        // 装備可能数を超える場合は装備している武器のIDを返す
+        if (Stats.UsableWeaponMax - 1 < WeaponSpawners.Count)
+        {
+            ret.Clear();
+            foreach (var item in WeaponSpawners)
+            {
+                ret.Add(item.Stats.Id);
+            }
+        }
+
+        return ret;
+    }
+
+    // 装備可能な武器をランダムで返す
+    public WeaponSpawnerStats GetRamdomSpawnerStats()
+    {
+        // 装備可能な武器ID
+        List<int> usableIds = GetUsableWeaponIds();
+
+        // 装備可能な武器がない場合
+        if (1 > usableIds.Count)
+        {
+            return null;
+        }
+
+        // 抽選する
+        int rnd = UnityEngine.Random.Range(0, usableIds.Count);
+        int id = usableIds[rnd];
+
+        // 装備済みなら卯木のレベルのデータ
+        BaseWeaponSpawner spawner = WeaponSpawners.Find(item => item.Stats.Id == id);
+        if (spawner)
+        {
+            return spawner.GetLevelUpStats(true);
+        }
+
+        // 新規アイテムならレベル1のデータ
+        return WeaponSpawnerSettings.Instance.Get(id, 1);
+    }
+
+    // アイテムを追加
+    void AddItemData(int id)
+    {
+        ItemData itemData = ItemSettings.Instance.Get(id);
+
+        if (null == itemData)
+        {
+            Debug.LogError("アイテムデータが見つかりません");
+            return;
+        }
+
+        // データを追加
+        Stats.AddItemData(itemData);
+
+        // 取得済みリストへ追加
+        ItemData key = null;
+        foreach (var item in ItemDatas)
+        {
+            if (item.Key.Id == itemData.Id)
+            {
+                key = item.Key;
+                break;
+            }
+        }
+
+        if (null == key)
+        {
+            ItemDatas.Add(itemData, 0);
+            key = itemData;
+        }
+
+        ItemDatas[key]++;
+    }
+
+    // レベルアップやアイテム取得時
+    public void AddBonusData(BonusData bonusData)
+    {
+        if (null == bonusData)
+        {
+            return;
+        }
+
+        // 武器データ
+        if (null != bonusData.WeaponSpawnerStats)
+        {
+            AddWeaponSpawner(bonusData.WeaponSpawnerStats.Id);
+        }
+
+        // アイテムデータ
+        if (null != bonusData.ItemData)
+        {
+            AddItemData(bonusData.ItemData.Id);
+        }
+
+        // 表示更新
+        SetSliderHP();
+    }
+
+    // アップデート停止
+    public void SetEnabled(bool enabled = true)
+    {
+        this.enabled = enabled;
+
+        // 武器
+        foreach (var item in WeaponSpawners)
+        {
+            item.SetEnabled(enabled);
+        }
     }
 }
