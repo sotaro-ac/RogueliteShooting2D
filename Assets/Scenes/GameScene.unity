@@ -2913,7 +2913,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329763250}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1676622023}
+        m_TargetAssemblyTypeName: PanelTreasureChestController, Assembly-CSharp
+        m_MethodName: OnClickClose
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &329763250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12955,7 +12967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -774060312, guid: 4bc60ecf5e51140d1a33fbcde7b4dad0, type: 3}
+  m_Sprite: {fileID: -1138764822, guid: 4bc60ecf5e51140d1a33fbcde7b4dad0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15508,7 +15520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1145280465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1676622023}
+        m_TargetAssemblyTypeName: PanelTreasureChestController, Assembly-CSharp
+        m_MethodName: OnClickOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1145280465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17743,6 +17767,11 @@ MonoBehaviour:
   - {fileID: 80433251491942935, guid: 70485ed59cbcf3341ae63f28dbbff113, type: 3}
   - {fileID: 5788006454351589261, guid: 85ff9df0af40ecd4fadd8b09cd9fdce3, type: 3}
   panelLevelUp: {fileID: 817268323}
+  panelTreasureChest: {fileID: 1676622023}
+  prefabTreasureChest: {fileID: 3330020671631420223, guid: 89ce68715ac415d42b1d84d3c634da2c, type: 3}
+  treasureChestItemIds: 03000000040000000500000006000000
+  treasureChestTimerMin: 1
+  treasureChestTimerMax: 5
 --- !u!4 &1306728215
 Transform:
   m_ObjectHideFlags: 0
@@ -18805,6 +18834,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e226c1ea1371994db89c6fa8bb888f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageClose: {fileID: 894317170}
+  imageOpen: {fileID: 1814056833}
+  imageItem: {fileID: 1565560060}
+  imageBackFX: {fileID: 411662977}
+  imageBackFXShiny: {fileID: 99978619}
+  buttonOpen: {fileID: 1145280464}
+  buttonClose: {fileID: 329763249}
+  textDescription: {fileID: 1477099039}
 --- !u!1 &1719968298
 GameObject:
   m_ObjectHideFlags: 0
@@ -21185,7 +21222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2048584599, guid: 4bc60ecf5e51140d1a33fbcde7b4dad0, type: 3}
+  m_Sprite: {fileID: 181747404, guid: 4bc60ecf5e51140d1a33fbcde7b4dad0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
