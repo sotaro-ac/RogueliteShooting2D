@@ -28,9 +28,28 @@ MonoBehaviour:
     PickUpRange: 0.5
     AliveTime: 0
     Prefab: {fileID: 7051577206823981917, guid: 7fa689c14efb53144b59c342cca03939, type: 3}
-    DefaultWeaponIds: 000000000100000002000000030000000400000005000000060000000700000008000000
-    UsableWeaponIds: 000000000100000002000000030000000400000005000000060000000700000008000000
+    DefaultWeaponIds: 02000000
+    UsableWeaponIds: 0100000002000000030000000400000005000000060000000700000008000000
     UsableWeaponMax: 6
+    MoveType: 0
+  - Title: "\u30A2\u30FC\u30C1\u30E3\u30FC"
+    Id: 1
+    Lv: 1
+    Name: "\u30A2\u30FC\u30C1\u30E3\u30FC"
+    Description: 
+    Attack: 1
+    Defense: 0.1
+    HP: 50
+    MaxHP: 50
+    XP: 0
+    MaxXP: 10
+    MoveSpeed: 3
+    PickUpRange: 0.5
+    AliveTime: -1
+    Prefab: {fileID: 970169650368157251, guid: 91dd1e155a1110048bbfddf9e69faed3, type: 3}
+    DefaultWeaponIds: 02000000
+    UsableWeaponIds: 000000000100000002000000030000000400000005000000060000000700000008000000
+    UsableWeaponMax: 5
     MoveType: 0
   - Title: "\u30B3\u30A6\u30E2\u30EA"
     Id: 100

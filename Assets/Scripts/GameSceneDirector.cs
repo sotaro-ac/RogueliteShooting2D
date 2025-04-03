@@ -104,7 +104,7 @@ public class GameSceneDirector : MonoBehaviour
         playerItemIcon = new Dictionary<ItemData, GameObject>();
 
         // プレイヤー作成
-        int playerId = 0;
+        int playerId = TitleSceneDirector.CharacterId;
         Player = CharacterSettings.Instance.CreatePlayer(
             playerId,
             this,
