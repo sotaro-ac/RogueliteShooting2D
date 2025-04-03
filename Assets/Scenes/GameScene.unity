@@ -17800,6 +17800,7 @@ MonoBehaviour:
   textDefeatedEnemy: {fileID: 1734165935}
   DefeatedEnemyCount: 0
   panelGameOver: {fileID: 403449374}
+  GameOverTime: 180
 --- !u!4 &1306728215
 Transform:
   m_ObjectHideFlags: 0

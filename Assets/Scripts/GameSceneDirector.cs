@@ -96,6 +96,9 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField]
     PanelGameOverController panelGameOver;
 
+    [SerializeField]
+    float GameOverTime;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -171,10 +174,18 @@ public class GameSceneDirector : MonoBehaviour
     {
         // ゲームタイマー更新
         UpdateGameTimer();
+
         // ステータス反映
         DispPlayerIcon();
+
         // 宝箱生成
         UpdateTreasureChestSpawner();
+
+        // 秒数経過でゲームオーバー
+        if (GameOverTime < GameTimer)
+        {
+            DispPanelGameOver();
+        }
     }
 
     // ダメージ表示
