@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -90,6 +92,10 @@ public class GameSceneDirector : MonoBehaviour
     Text textDefeatedEnemy;
     public int DefeatedEnemyCount;
 
+    // ゲームオーバー
+    [SerializeField]
+    PanelGameOverController panelGameOver;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -113,6 +119,7 @@ public class GameSceneDirector : MonoBehaviour
         enemySpawner.Init(this, tilemapCollider);
         panelLevelUp.Init(this);
         panelTreasureChest.Init(this);
+        panelGameOver.Init(this);
 
         // カメラの移動できる範囲
         foreach (Transform item in grid.GetComponentInChildren<Transform>())
@@ -418,5 +425,22 @@ public class GameSceneDirector : MonoBehaviour
     {
         DefeatedEnemyCount++;
         textDefeatedEnemy.text = "" + DefeatedEnemyCount;
+    }
+
+    // タイトルへ
+    public void LoadSceneTitle()
+    {
+        DOTween.KillAll();
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    // ゲームオーバーパネルを表示
+    public void DispPanelGameOver()
+    {
+        // パネル表示
+        panelGameOver.DispPanel(Player.WeaponSpawners);
+
+        // ゲーム中断
+        SetEnabled(false);
     }
 }
