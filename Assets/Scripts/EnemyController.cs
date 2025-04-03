@@ -191,9 +191,10 @@ public class EnemyController : MonoBehaviour
         // ダメージ表示
         sceneDirector.DisplayDamage(gameObject, damage);
 
-        // TODO: 消滅
+        // 消滅
         if (0 > Stats.HP)
         {
+            sceneDirector.AddDefeatedEnemy();
             SetDead();
         }
 
