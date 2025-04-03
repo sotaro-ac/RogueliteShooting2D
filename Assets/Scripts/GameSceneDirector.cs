@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -71,9 +72,26 @@ public class GameSceneDirector : MonoBehaviour
     float treasureChestTimerMax;
     float treasureChestTimer;
 
+    // 左上に表示するアイコン
+    [SerializeField]
+    Transform canvas;
+
+    [SerializeField]
+    GameObject prefabImagePlayerIcon;
+    Dictionary<BaseWeaponSpawner, GameObject> playerWeaponIcons;
+    Dictionary<ItemData, GameObject> playerItemIcon;
+
+    // * User Modified
+    const float PlayerIconStartX = 2.5f;
+    const float PlayerIconStartY = -22.5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // 変数初期化
+        playerWeaponIcons = new Dictionary<BaseWeaponSpawner, GameObject>();
+        playerItemIcon = new Dictionary<ItemData, GameObject>();
+
         // プレイヤー作成
         int playerId = 0;
         Player = CharacterSettings.Instance.CreatePlayer(
@@ -124,6 +142,12 @@ public class GameSceneDirector : MonoBehaviour
 
         // 初期値
         treasureChestTimer = Random.Range(treasureChestTimerMin, treasureChestTimerMax);
+
+        // アイコン更新
+        DispPlayerIcon();
+
+        // TimerScaleリセット
+        SetEnabled();
     }
 
     // Update is called once per frame
@@ -131,6 +155,8 @@ public class GameSceneDirector : MonoBehaviour
     {
         // ゲームタイマー更新
         UpdateGameTimer();
+        // ステータス反映
+        DispPlayerIcon();
         // 宝箱生成
         UpdateTreasureChestSpawner();
     }
@@ -310,5 +336,71 @@ public class GameSceneDirector : MonoBehaviour
 
         // 次のタイマーをセット
         treasureChestTimer = Random.Range(treasureChestTimerMin, treasureChestTimerMax);
+    }
+
+    // プレイヤーアイコンをセット
+    void SetPlayerIcon(GameObject obj, Vector2 pos, Sprite icon, int count)
+    {
+        // 画像
+        Transform image = obj.transform.Find("ImageIcon");
+        image.GetComponent<Image>().sprite = icon;
+
+        // テキスト
+        Transform text = obj.transform.Find("TextCount");
+        text.GetComponent<TextMeshProUGUI>().text = "" + count;
+
+        // 場所
+        obj.GetComponent<RectTransform>().anchoredPosition = pos;
+    }
+
+    // アイコンの表示を更新
+    void DispPlayerIcon()
+    {
+        // 武器アイコン表示位置
+        float x = PlayerIconStartX;
+        float y = PlayerIconStartY;
+        float w = prefabImagePlayerIcon.GetComponent<RectTransform>().sizeDelta.x + 2;
+
+        foreach (var item in Player.WeaponSpawners)
+        {
+            // 作成済みのデータがあれば取得する
+            playerWeaponIcons.TryGetValue(item, out GameObject obj);
+
+            // なければ作成する
+            if (!obj)
+            {
+                obj = Instantiate(prefabImagePlayerIcon, canvas);
+                playerWeaponIcons.Add(item, obj);
+            }
+
+            // アイコンセット
+            SetPlayerIcon(obj, new(x, y), item.Stats.Icon, item.Stats.Lv);
+
+            // 次の位置
+            x += w;
+        }
+
+        // アイテムアイコン表示位置
+        x = PlayerIconStartX;
+        y = PlayerIconStartY - w;
+
+        foreach (var item in Player.ItemDatas)
+        {
+            // 作成済みのデータがあれば取得する
+            playerItemIcon.TryGetValue(item.Key, out GameObject obj);
+
+            // なければ作成する
+            if (!obj)
+            {
+                obj = Instantiate(prefabImagePlayerIcon, canvas);
+                playerItemIcon.Add(item.Key, obj);
+            }
+
+            // アイコンセット
+            SetPlayerIcon(obj, new(x, y), item.Key.Icon, item.Value);
+
+            // 次の位置
+            x += w;
+        }
     }
 }

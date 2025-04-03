@@ -17772,6 +17772,8 @@ MonoBehaviour:
   treasureChestItemIds: 03000000040000000500000006000000
   treasureChestTimerMin: 1
   treasureChestTimerMax: 5
+  canvas: {fileID: 562762797}
+  prefabImagePlayerIcon: {fileID: 6859603426153607722, guid: 7133fd2664e479146bb1ed14835e6981, type: 3}
 --- !u!4 &1306728215
 Transform:
   m_ObjectHideFlags: 0
