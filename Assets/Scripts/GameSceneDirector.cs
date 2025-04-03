@@ -375,7 +375,7 @@ public class GameSceneDirector : MonoBehaviour
         // 武器アイコン表示位置
         float x = PlayerIconStartX;
         float y = PlayerIconStartY;
-        float w = prefabImagePlayerIcon.GetComponent<RectTransform>().sizeDelta.x + 2;
+        float w = prefabImagePlayerIcon.GetComponent<RectTransform>().sizeDelta.x + 1;
 
         foreach (var item in Player.WeaponSpawners)
         {
