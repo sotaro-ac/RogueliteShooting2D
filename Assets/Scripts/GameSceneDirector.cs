@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
+// TODO: SPACE で選択中のボタンをクリックできるようにする
+
 public class GameSceneDirector : MonoBehaviour
 {
     // タイルマップ

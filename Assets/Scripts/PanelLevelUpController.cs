@@ -106,6 +106,13 @@ public class PanelLevelUpController : MonoBehaviour
         if (1 > items.Count)
         {
             buttonCancel.gameObject.SetActive(true);
+            // デフォルトで選択状態にする
+            buttonCancel.Select();
+        }
+        // 1つ目の項目を選択状態にする
+        else
+        {
+            dispButtons[0].Select();
         }
 
         // 前面に表示
