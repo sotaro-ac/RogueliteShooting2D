@@ -69,7 +69,7 @@ MonoBehaviour:
     AliveTime: 5
     PrefabSpawner: {fileID: 2514693730072917004, guid: 7d1896df30b03b9458667327054e946d, type: 3}
     Icon: {fileID: -574902017, guid: fe9d176ce4b73467ab961a542a54e03d, type: 3}
-    LevelUpItemId: 4
+    LevelUpItemId: 2
     SpawnCount: 2
     SpawnTimerMin: 2
     SpawnTimerMax: 3

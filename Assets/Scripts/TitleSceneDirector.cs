@@ -97,5 +97,7 @@ public class TitleSceneDirector : MonoBehaviour
 
         // 最初のボタンを選択状態にする
         buttonPlayers[0].Select();
+
+        SoundController.Instance.PlaySE(0);
     }
 }

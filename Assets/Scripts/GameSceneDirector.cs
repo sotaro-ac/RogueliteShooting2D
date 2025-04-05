@@ -169,6 +169,8 @@ public class GameSceneDirector : MonoBehaviour
 
         // TimerScaleリセット
         SetEnabled();
+
+        SoundController.Instance.PlayBGM(0);
     }
 
     // Update is called once per frame

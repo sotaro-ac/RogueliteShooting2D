@@ -32,6 +32,8 @@ public class SlashSpawnerController : BaseWeaponSpawner
         // 生成
         SlashController ctrl = (SlashController)CreateWeapon(pos, transform);
 
+        SoundController.Instance.PlaySE(1);
+
         // 左右で角度を変える
         ctrl.transform.eulerAngles = ctrl.transform.eulerAngles * dir;
 
