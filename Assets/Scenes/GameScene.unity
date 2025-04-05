@@ -2816,6 +2816,97 @@ MonoBehaviour:
     SpawnDuration: 5
     SpawnCountMax: 30
     EnemyIds: 6600000067000000
+  - Title: "1:30 \u3053\u3053\u307E\u3067\u306E\u6575"
+    ElapsedMinutes: 1
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 30
+    EnemyIds: 64000000650000006600000067000000
+  - Title: "2:00 \u786C\u3044\u6575"
+    ElapsedMinutes: 2
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 9999
+    SpawnCountMax: 100
+    EnemyIds: c9000000
+  - Title: "2:30 \u30B9\u30B1\u30EB\u30C8\u30F3\u30D5\u30A1\u30A4\u30BF\u30FC"
+    ElapsedMinutes: 2
+    ElapsedSeconds: 30
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 40
+    EnemyIds: 6700000068000000
+  - Title: "3:00 \u30B9\u30B1\u30EB\u30C8\u30F3\u30D5\u30A1\u30A4\u30BF\u30FC\u307E\u3067\u306E\u6575"
+    ElapsedMinutes: 3
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 40
+    EnemyIds: 6400000065000000660000006700000068000000
+  - Title: "3:30 \u30DC\u30B92\u4F53"
+    ElapsedMinutes: 3
+    ElapsedSeconds: 30
+    SpawnType: 0
+    SpawnDuration: 999999
+    SpawnCountMax: 2
+    EnemyIds: f4010000
+  - Title: "4:00 \u30B3\u30A6\u30E2\u30EA\u5927\u7FA4"
+    ElapsedMinutes: 4
+    ElapsedSeconds: 30
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 100
+    EnemyIds: c8000000
+  - Title: "4:30 \u5186\u5468\u30DC\u30B9 30\u79D2"
+    ElapsedMinutes: 4
+    ElapsedSeconds: 30
+    SpawnType: 0
+    SpawnDuration: 30
+    SpawnCountMax: 5
+    EnemyIds: c9000000f4010000
+  - Title: "5:00 \u3046\u3058\u3083\u3046\u3058\u3083 10\u79D2"
+    ElapsedMinutes: 5
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 50
+    EnemyIds: 640000006500000066000000670000006800000069000000
+  - Title: "6:00 \u30B3\u30A6\u30E2\u30EA\u5927\u7FA4"
+    ElapsedMinutes: 6
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 100
+    EnemyIds: c8000000
+  - Title: "7:00 \u3046\u3058\u3083\u3046\u3058\u3083 5\u79D2"
+    ElapsedMinutes: 7
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 100
+    EnemyIds: 640000006500000066000000670000006800000069000000
+  - Title: "8:00 \u5186\u5468\u30DC\u30B9 15\u79D2"
+    ElapsedMinutes: 8
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 15
+    SpawnCountMax: 50
+    EnemyIds: f4010000
+  - Title: "10:00 \u5168\u90E8 10\u79D2"
+    ElapsedMinutes: 10
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 10
+    SpawnCountMax: 100
+    EnemyIds: 640000006500000066000000670000006800000069000000
+  - Title: "12:00 \u5168\u90E8 8\u79D2"
+    ElapsedMinutes: 12
+    ElapsedSeconds: 0
+    SpawnType: 0
+    SpawnDuration: 8
+    SpawnCountMax: 100
+    EnemyIds: 640000006500000066000000670000006800000069000000
 --- !u!4 &307165559
 Transform:
   m_ObjectHideFlags: 0
@@ -17793,14 +17884,14 @@ MonoBehaviour:
   panelTreasureChest: {fileID: 1676622023}
   prefabTreasureChest: {fileID: 3330020671631420223, guid: 89ce68715ac415d42b1d84d3c634da2c, type: 3}
   treasureChestItemIds: 03000000040000000500000006000000
-  treasureChestTimerMin: 1
-  treasureChestTimerMax: 5
+  treasureChestTimerMin: 180
+  treasureChestTimerMax: 300
   canvas: {fileID: 562762797}
   prefabImagePlayerIcon: {fileID: 6859603426153607722, guid: 7133fd2664e479146bb1ed14835e6981, type: 3}
   textDefeatedEnemy: {fileID: 1734165935}
   DefeatedEnemyCount: 0
   panelGameOver: {fileID: 403449374}
-  GameOverTime: 180
+  GameOverTime: 300
 --- !u!4 &1306728215
 Transform:
   m_ObjectHideFlags: 0
