@@ -3,7 +3,7 @@ using UnityEngine;
 public class XPController : MonoBehaviour
 {
     GameSceneDirector sceneDirector;
-    Rigidbody2D rigidbody2D;
+    new Rigidbody2D rigidbody2D;
     SpriteRenderer spriteRenderer;
 
     // 経験値

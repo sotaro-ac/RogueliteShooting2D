@@ -61,11 +61,8 @@ public class EnemySpawnerController : MonoBehaviour
     // 現在の出現位置
     const float SpawnRadius = 13;
 
-    // インスタンス読み込み時に呼び出される
-    void Awake()
-    {
-        DG.Tweening.DOTween.SetTweensCapacity(tweenersCapacity: 500, sequencesCapacity: 200);
-    }
+    // // インスタンス読み込み時に呼び出される
+    // void Awake() { }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() { }
