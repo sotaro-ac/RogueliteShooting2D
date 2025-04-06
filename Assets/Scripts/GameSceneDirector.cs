@@ -233,6 +233,11 @@ public class GameSceneDirector : MonoBehaviour
         {
             prefab = prefabXP[1];
         }
+        // 25以上
+        if (25 <= xp)
+        {
+            prefab = prefabXP[2];
+        }
 
         // 初期化
         GameObject obj = Instantiate(prefab, enemy.transform.position, Quaternion.identity);
