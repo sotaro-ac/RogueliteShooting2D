@@ -288,8 +288,9 @@ public class PlayerController : MonoBehaviour
     // XPスライダーの値を更新
     void SetSliderXP()
     {
-        sliderXP.maxValue = Stats.MaxXP;
-        sliderXP.value = Stats.XP;
+        // * 累積XPを導入する
+        sliderXP.maxValue = Stats.MaxXP - levelRequirements[Stats.Lv - 1];
+        sliderXP.value = Stats.XP - levelRequirements[Stats.Lv - 1];
     }
 
     // 衝突したとき
@@ -389,7 +390,8 @@ public class PlayerController : MonoBehaviour
             // 次の経験値
             if (Stats.Lv < levelRequirements.Count)
             {
-                Stats.XP = 0;
+                // * 累積XPに変更
+                // Stats.XP = 0;
                 Stats.MaxXP = levelRequirements[Stats.Lv];
             }
 

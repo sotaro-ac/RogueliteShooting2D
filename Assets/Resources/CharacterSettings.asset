@@ -212,8 +212,8 @@ MonoBehaviour:
     Defense: 0
     HP: 5000
     MaxHP: 0
-    XP: 20
-    MaxXP: 30
+    XP: 25
+    MaxXP: 50
     MoveSpeed: 0.15
     PickUpRange: 0
     AliveTime: -1
