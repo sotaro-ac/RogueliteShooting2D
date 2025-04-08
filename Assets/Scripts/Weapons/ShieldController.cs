@@ -48,7 +48,9 @@ public class ShieldController : BaseWeapon
 
         // 反対側へ跳ね返す
         Vector3 forward = enemy.transform.position - transform.root.position;
-        enemy.GetComponent<Rigidbody2D>().AddForce(forward.normalized * 5);
+        enemy.GetComponent<Rigidbody2D>().AddForce(forward.normalized, ForceMode2D.Impulse);
+
+        // TODO: 敵が滑り続けないようにする
 
         AttackEnemy(collision);
     }
