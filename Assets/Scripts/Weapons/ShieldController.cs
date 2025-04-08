@@ -48,9 +48,11 @@ public class ShieldController : BaseWeapon
 
         // 反対側へ跳ね返す
         Vector3 forward = enemy.transform.position - transform.root.position;
-        enemy.GetComponent<Rigidbody2D>().AddForce(forward.normalized, ForceMode2D.Impulse);
-
-        // TODO: 敵が滑り続けないようにする
+        // enemy.GetComponent<Rigidbody2D>().AddForce(forward.normalized, ForceMode2D.Impulse);
+        // * 敵が滑り続けないようにする
+        // * 参考 https://gomafrontier.com/unity/282
+        float mass = enemy.GetComponent<Rigidbody2D>().mass;
+        enemy.transform.DOMove(enemy.transform.position + forward.normalized / mass, 0.5f);
 
         AttackEnemy(collision);
     }
