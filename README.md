@@ -4,6 +4,12 @@ Vampior Survivors 風の2Dゲームを作成する
 
 - **Project Name**: `RogueliteShooting2D`
 
+## Roadmap
+
+- [ ] タイトル画面にオプションを追加する
+- [ ] BGM/SEの音量調整機能を実装する
+- [ ] ポーズ機能を実装する
+
 
 ## Ingredients
 
