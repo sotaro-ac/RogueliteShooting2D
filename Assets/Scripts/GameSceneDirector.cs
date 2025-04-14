@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -101,6 +102,10 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField]
     float GameOverTime;
 
+    // ポーズ画面
+    [SerializeField]
+    PanelPauseMenuController panelPauseMenu;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -125,6 +130,7 @@ public class GameSceneDirector : MonoBehaviour
         panelLevelUp.Init(this);
         panelTreasureChest.Init(this);
         panelGameOver.Init(this);
+        panelPauseMenu.Init(this);
 
         // カメラの移動できる範囲
         foreach (Transform item in grid.GetComponentInChildren<Transform>())
@@ -190,7 +196,25 @@ public class GameSceneDirector : MonoBehaviour
         // 秒数経過でゲームオーバー
         if (GameOverTime < GameTimer)
         {
+            panelPauseMenu.HidePanel();
             DispPanelGameOver();
+        }
+
+        //ポーズ画面
+        // TODO: Input System で外部から変更できるようにする
+        var playerHP = Player.Stats.HP;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (panelPauseMenu.isActiveAndEnabled == false && 0 <= playerHP)
+            {
+                DispPanelPauseMenu();
+            }
+        }
+
+        if (panelPauseMenu.isActiveAndEnabled && 0 >= playerHP)
+        {
+            panelPauseMenu.HidePanel();
         }
     }
 
@@ -246,9 +270,10 @@ public class GameSceneDirector : MonoBehaviour
     }
 
     // ゲーム開始/停止
-    void SetEnabled(bool enabled = true)
+    // TODO: private できるようにリファクタ
+    public void SetEnabled(bool enabled = true)
     {
-        this.enabled = enabled;
+        // this.enabled = enabled;
         Time.timeScale = (enabled) ? 1 : 0;
         Player.SetEnabled(enabled);
     }
@@ -440,6 +465,16 @@ public class GameSceneDirector : MonoBehaviour
             // 次の位置
             x += w;
         }
+    }
+
+    // ポーズ画面を表示する
+    void DispPanelPauseMenu()
+    {
+        // パネル表示
+        panelPauseMenu.DispPanel();
+
+        // ゲーム中断
+        SetEnabled(false);
     }
 
     // 倒した敵をカウント

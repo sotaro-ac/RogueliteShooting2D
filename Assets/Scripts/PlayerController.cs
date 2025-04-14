@@ -262,14 +262,13 @@ public class PlayerController : MonoBehaviour
             SetEnabled(false);
 
             // アニメーション
+            // TODO: アニメーション中にポーズを押すとゲームが停止しないようにする
             transform
                 .DOScale(new Vector2(5, 0), 2)
                 .SetUpdate(true)
                 .OnComplete(() => sceneDirector.DispPanelGameOver());
-        }
 
-        if (0 > Stats.HP)
-        {
+            // HP がマイナスにならないようにする
             Stats.HP = 0;
         }
 
