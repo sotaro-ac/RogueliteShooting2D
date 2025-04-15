@@ -2,6 +2,8 @@
 
 Vampior Survivors 風の2Dゲームを作成する
 
+![](site/screenshot.png)
+
 - **Project Name**: `RogueliteShooting2D`
 
 ## Roadmap
