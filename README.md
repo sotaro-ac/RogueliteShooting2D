@@ -13,6 +13,7 @@ Vampior Survivors 風の2Dゲームを作成する
 - [ ] BGM/SEの音量調整機能を実装する
 - [x] ポーズ機能を実装する
 - [ ] 操作系周辺(キーボード＋マウス)のリファクタ(Input Systemで再実装)
+- [ ] ドット風フォントに換装
 
 #### Ver. 0.9.x
 - [ ] アセット(特にSprite)をオリジナルに置き換える
@@ -34,8 +35,11 @@ Unityプロジェクト起動に必要なもの
 
 **Fonts**
 
-- Noto Sans japanese - Google Font [[Link]](https://fonts.google.com/noto/specimen/Noto+Sans+JP?subset=japanese&query=Noto+Sans+Japanese&noto.script=Hira):
-  - 異なるプレイ環境でもフォントの表示を統一するために用意（`Assets/Fonts`に配置する）
+異なるプレイ環境でもフォントの表示を統一するために用意（`Assets/Fonts`に配置する）
+
+- Noto Sans japanese - Google Font [[Link]](https://fonts.google.com/noto/specimen/Noto+Sans+JP?subset=japanese&query=Noto+Sans+Japanese&noto.script=Hira)
+
+- PixelMplus10 - 8192.jp [[Link]](https://itouhiro.hatenablog.com/entry/20130602/font)
 
 
 **Module (Import)**
