@@ -10,6 +10,14 @@ public class TitleSceneDirector : MonoBehaviour
     [SerializeField]
     Button buttonStart;
 
+    // スタートボタン
+    [SerializeField]
+    Button buttonUpgrade;
+
+    // スタートボタン
+    [SerializeField]
+    Button buttonOption;
+
     // 左のボタンから順番にID のキャラクターデータを読み込む
     [SerializeField]
     List<Button> buttonPlayers;
@@ -26,8 +34,8 @@ public class TitleSceneDirector : MonoBehaviour
         int idx = 0;
         foreach (var item in buttonPlayers)
         {
-            // 初期表示
-            item.gameObject.SetActive(false);
+            // // 初期表示
+            // item.gameObject.SetActive(false);
 
             // データが足りない
             if (characterIds.Count - 1 < idx)
@@ -46,6 +54,9 @@ public class TitleSceneDirector : MonoBehaviour
             Image imageCharacter = item.transform.Find("ImageCharacter").GetComponent<Image>();
             Image imageWeapon = item.transform.Find("ImageWeapon").GetComponent<Image>();
             Text textName = item.transform.Find("TextName").GetComponent<Text>();
+
+            // WIP: PLAY押下時に表示させる
+            Utils.SetAlpha(textName, 0);
 
             if (null != charStats.Prefab)
             {
@@ -84,15 +95,28 @@ public class TitleSceneDirector : MonoBehaviour
         Utils.DOFadeUpdate(buttonStart, 0, 1);
         buttonStart.interactable = false;
 
+        // WIP: ボタンをコンテナで一括管理
+        // スタートボタンフェードアウト
+        Utils.DOFadeUpdate(buttonUpgrade, 0, 1);
+        buttonUpgrade.interactable = false;
+
+        // スタートボタンフェードアウト
+        Utils.DOFadeUpdate(buttonOption, 0, 1);
+        buttonOption.interactable = false;
+
         // 選択できるプレイヤーをフェードイン
         for (int i = 0; i < buttonPlayers.Count; i++)
         {
             var item = buttonPlayers[i];
 
-            Utils.SetAlpha(item, 0);
-            item.gameObject.SetActive(true);
+            // WIP: PLAY押下時に表示させる
+            Text textName = item.transform.Find("TextName").GetComponent<Text>();
+            Utils.SetAlpha(textName, 1);
 
-            Utils.DOFadeUpdate(item, 1, 1, 0);
+            // Utils.SetAlpha(item, 0);
+            // item.gameObject.SetActive(true);
+
+            // Utils.DOFadeUpdate(item, 1, 1, 0);
         }
 
         // 最初のボタンを選択状態にする

@@ -178,7 +178,7 @@ public class GameSceneDirector : MonoBehaviour
 
         SoundController.Instance.PlayBGM(0);
 
-        DOTween.SetTweensCapacity(tweenersCapacity: 1500, sequencesCapacity: 500);
+        DOTween.SetTweensCapacity(tweenersCapacity: 10000000, sequencesCapacity: 10000000);
     }
 
     // Update is called once per frame
