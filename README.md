@@ -2,7 +2,9 @@
 
 Vampior Survivors 風の2Dゲームを作成する
 
-![](site/screenshot.png)
+[![](site/screenshot.png)](https://youtu.be/bmwFI_Bqy4U)
+
+> クリックするとYouTube上でデモ動画が見れます
 
 - **Project Name**: `RogueliteShooting2D`
 
