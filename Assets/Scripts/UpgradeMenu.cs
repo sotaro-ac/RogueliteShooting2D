@@ -2,21 +2,15 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionMenu : MonoBehaviour
+public class UpgradeMenu : MonoBehaviour
 {
-    public static OptionMenu Instance;
+    public static UpgradeMenu Instance;
 
     [SerializeField]
-    private CanvasGroup panelOptionMenu;
+    private CanvasGroup panelUpgradeMenu;
 
     [SerializeField]
     private Button buttonBack;
-
-    [SerializeField]
-    private Slider sliderBGM;
-
-    [SerializeField]
-    private Slider sliderSE;
 
     [SerializeField]
     private CanvasGroup panelTitle;
@@ -32,28 +26,20 @@ public class OptionMenu : MonoBehaviour
         }
 
         // 初期状態は非表示
-        panelOptionMenu.alpha = 0;
-        panelOptionMenu.interactable = false;
-        panelOptionMenu.blocksRaycasts = false;
+        panelUpgradeMenu.alpha = 0;
+        panelUpgradeMenu.interactable = false;
+        panelUpgradeMenu.blocksRaycasts = false;
 
         // 閉じるボタンのイベント設定
         buttonBack.onClick.AddListener(Close);
-
-        // スライダーの初期値設定
-        sliderBGM.value = SoundController.Instance.BGMVolume;
-        sliderSE.value = SoundController.Instance.SEVolume;
-
-        // スライダーのイベント設定
-        sliderBGM.onValueChanged.AddListener(OnBGMVolumeChanged);
-        sliderSE.onValueChanged.AddListener(OnSEVolumeChanged);
     }
 
     public void Open()
     {
         // メニューを表示
-        panelOptionMenu.interactable = true;
-        panelOptionMenu.blocksRaycasts = true;
-        panelOptionMenu.DOFade(1, 0.5f);
+        panelUpgradeMenu.interactable = true;
+        panelUpgradeMenu.blocksRaycasts = true;
+        panelUpgradeMenu.DOFade(1, 0.5f);
 
         // タイトル要素を非表示
         panelTitle.alpha = 0;
@@ -73,9 +59,9 @@ public class OptionMenu : MonoBehaviour
     public void Close()
     {
         // メニューを非表示
-        panelOptionMenu.interactable = false;
-        panelOptionMenu.blocksRaycasts = false;
-        panelOptionMenu.DOFade(0, 0.5f);
+        panelUpgradeMenu.interactable = false;
+        panelUpgradeMenu.blocksRaycasts = false;
+        panelUpgradeMenu.DOFade(0, 0.5f);
 
         // タイトル要素を表示
         panelTitle.DOFade(1, 0.5f);
@@ -87,16 +73,5 @@ public class OptionMenu : MonoBehaviour
         panelCharacters.blocksRaycasts = true;
 
         SoundController.Instance.PlaySE(SE.Cancel);
-    }
-
-    private void OnBGMVolumeChanged(float value)
-    {
-        SoundController.Instance.BGMVolume = value;
-    }
-
-    private void OnSEVolumeChanged(float value)
-    {
-        SoundController.Instance.PlaySE(SE.Item);
-        SoundController.Instance.SEVolume = value;
     }
 }

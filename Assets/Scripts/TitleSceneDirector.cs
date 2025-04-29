@@ -8,29 +8,33 @@ public class TitleSceneDirector : MonoBehaviour
 {
     // スタートボタン
     [SerializeField]
-    Button buttonStart;
+    private Button buttonStart;
 
     // アップグレードボタン
     [SerializeField]
-    Button buttonUpgrade;
+    private Button buttonUpgrade;
 
     // オプションボタン
     [SerializeField]
-    Button buttonOption;
+    private Button buttonOption;
+
+    // グレードアップメニュー
+    [SerializeField]
+    private CanvasGroup panelUpgradeMenu;
 
     // オプションメニュー
     [SerializeField]
-    OptionMenu optionMenu;
+    private CanvasGroup panelOptionMenu;
 
     // 左のボタンから順番にID のキャラクターデータを読み込む
     [SerializeField]
-    List<Button> buttonPlayers;
+    private List<Button> buttonPlayers;
 
     [SerializeField]
-    List<int> characterIds;
+    private List<int> characterIds;
 
     [SerializeField]
-    Button buttonBack;
+    private Button buttonBack;
 
     // 選択したキャラクターID
     public static int CharacterId;
@@ -44,15 +48,15 @@ public class TitleSceneDirector : MonoBehaviour
         // オプションボタンのイベント設定
         buttonOption.onClick.AddListener(OnClickOption);
 
+        // アップグレードボタンのイベント設定
+        buttonUpgrade.onClick.AddListener(OnClickUpgrade);
+
         // 戻るボタンのイベント設定
         buttonBack.onClick.AddListener(OnClickBack);
 
         int idx = 0;
         foreach (var item in buttonPlayers)
         {
-            // // 初期表示
-            // item.gameObject.SetActive(false);
-
             // データが足りない
             if (characterIds.Count - 1 < idx)
             {
@@ -109,6 +113,12 @@ public class TitleSceneDirector : MonoBehaviour
         // 戻るボタンを非表示
         Utils.SetAlpha(buttonBack, 0);
         buttonBack.interactable = false;
+
+        // PanelOptionMenuの位置を(left, right) = (0, 0)にする
+        panelOptionMenu.transform.localPosition = new Vector3(0, 0);
+
+        // PanelUpgradeMenuの位置を(left, right) = (0, 0)にする
+        panelUpgradeMenu.transform.localPosition = new Vector3(0, 0);
     }
 
     // Update is called once per frame
@@ -147,11 +157,6 @@ public class TitleSceneDirector : MonoBehaviour
 
             // ボタンを活性にする
             item.interactable = true;
-
-            // Utils.SetAlpha(item, 0);
-            // item.gameObject.SetActive(true);
-
-            // Utils.DOFadeUpdate(item, 1, 1, 0);
         }
 
         // 最初のボタンを選択状態にする
@@ -160,10 +165,16 @@ public class TitleSceneDirector : MonoBehaviour
         SoundController.Instance.PlaySE(SE.Button);
     }
 
+    // アップグレードボタン
+    public void OnClickUpgrade()
+    {
+        UpgradeMenu.Instance.Open();
+    }
+
     // オプションボタン
     public void OnClickOption()
     {
-        optionMenu.Open();
+        OptionMenu.Instance.Open();
     }
 
     // 戻るボタン
