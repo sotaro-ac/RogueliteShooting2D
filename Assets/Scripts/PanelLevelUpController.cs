@@ -12,9 +12,6 @@ public class PanelLevelUpController : MonoBehaviour
 
     GameSceneDirector sceneDirector;
 
-    // 選択カーソル
-    int selectButtonCursor;
-
     // 表示中のボタン
     List<Button> dispButtons;
 
@@ -98,9 +95,6 @@ public class PanelLevelUpController : MonoBehaviour
             SetButtonLvUp(button, lv, name, desc, icon);
             dispButtons.Add(button);
         }
-
-        // カーソルをリセット
-        selectButtonCursor = 0;
 
         // 選べるボタンがない場合
         if (1 > items.Count)

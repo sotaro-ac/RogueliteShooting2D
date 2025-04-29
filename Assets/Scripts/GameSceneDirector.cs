@@ -176,7 +176,7 @@ public class GameSceneDirector : MonoBehaviour
         // TimerScaleリセット
         SetEnabled();
 
-        SoundController.Instance.PlayBGM(0);
+        SoundController.Instance.PlayBGM(BGM.Game);
 
         DOTween.SetTweensCapacity(tweenersCapacity: 10000000, sequencesCapacity: 10000000);
     }
@@ -487,6 +487,7 @@ public class GameSceneDirector : MonoBehaviour
     // タイトルへ
     public void LoadSceneTitle()
     {
+        SoundController.Instance.StopBGM();
         DOTween.KillAll();
         SceneManager.LoadScene("TitleScene");
     }
@@ -494,6 +495,8 @@ public class GameSceneDirector : MonoBehaviour
     // ゲームオーバーパネルを表示
     public void DispPanelGameOver()
     {
+        SoundController.Instance.StopBGM();
+        SoundController.Instance.PlayBGM(BGM.GameOver);
         // パネル表示
         panelGameOver.DispPanel(Player.WeaponSpawners);
 
